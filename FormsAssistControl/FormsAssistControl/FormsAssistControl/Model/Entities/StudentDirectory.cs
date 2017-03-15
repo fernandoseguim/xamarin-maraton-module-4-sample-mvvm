@@ -9,17 +9,17 @@ namespace FormsAssistControl.Model.Entities
 {
     public class StudentDirectory : ObservableBaseObject
     {
-
+        private ObservableCollection<Student> students = new ObservableCollection<Student>();
         public ObservableCollection<Student> Students
         {
             get
             {
-                return Students;
+                return students;
             }
 
             set
             {
-                Students = value; OnPropertyChanged();
+                students = value; OnPropertyChanged();
             }
         }
 

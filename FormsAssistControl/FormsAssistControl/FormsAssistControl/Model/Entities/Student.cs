@@ -9,63 +9,72 @@ namespace FormsAssistControl.Model.Entities
     public class Student : ObservableBaseObject
     {
 
+        private string name;
         public string Name
         {
             get
             {
-                return Name;
+                return name;
             }
             
             set
             {
-                Name = value; OnPropertyChanged();
+                name = value; OnPropertyChanged();
             }
         }
+
+        private string lastname;
         public string Lastname
         {
             get
             {
-                return Lastname;
+                return lastname;
             }
             set
             {
-                Lastname = value; OnPropertyChanged();
+                lastname = value; OnPropertyChanged();
             }
         }
+
+        private string group;
         public string Group {
 
             get
             {
-                return Group;
+                return group;
             }
 
             set
             {
-                Group = value; OnPropertyChanged();
+                group = value; OnPropertyChanged();
             }
         }
+
+        private string studentNumber;
         public string StudentNumber
         {
             get
             {
-                return StudentNumber;
+                return studentNumber;
             }
 
             set
             {
-                StudentNumber = value; OnPropertyChanged();
+                studentNumber = value; OnPropertyChanged();
             }
         }
+
+        private double average;
         public double Average
         {
             get
             {
-                return Average;
+                return average;
             }
 
             set
             {
-                Average = value; OnPropertyChanged();
+                average = value; OnPropertyChanged();
             }
         }
 

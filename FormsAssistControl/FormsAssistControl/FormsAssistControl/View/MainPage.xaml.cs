@@ -1,4 +1,5 @@
-﻿using FormsAssistControl.ViewModel;
+﻿using FormsAssistControl.Model.Entities;
+using FormsAssistControl.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,16 @@ namespace FormsAssistControl.View
         {
             InitializeComponent();
             this.BindingContext = new StudentDirectoryViewModel();
+            listViewStudents.ItemSelected += GetStudentDetails;
+        }
+
+        private void GetStudentDetails(object sender, SelectedItemChangedEventArgs e)
+        {
+            Student selectedStudent = (Student)e.SelectedItem;
+            if (selectedStudent == null)
+                return;
+            Navigation.PushAsync(new StudentDetailsPage(selectedStudent));
+            listViewStudents.SelectedItem = null;
         }
     }
 }

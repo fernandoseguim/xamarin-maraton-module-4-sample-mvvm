@@ -1,30 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FormsAssistControl.ViewModel"
-             x:Class="FormsAssistControl.View.MainPage"
-             >
-    <ContentPage.BindingContext>
-        <local:StudentDirectoryViewModel />
-    </ContentPage.BindingContext>
-
-    <!--<StackLayout>
-        <Label Text="Welcome to Xamarin Forms! - By Fernando Seguim" 
-               VerticalOptions="StartAndExpand" 
-               HorizontalOptions="Center" />
-        <Button Text="Listar Boletins" />
-    </StackLayout>-->
+             xmlns:local="clr-namespace:FormsAssistControl.View"
+             x:Class="FormsAssistControl.View.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:AverageToColorConverter x:Key="ColorConvert" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout>
 
         <Button Text="Obter notas" Command="{Binding LoadDirectoryCommand}" />
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
 
-        <ListView ItemsSource="{Binding Students}">
+        <ListView ItemsSource="{Binding Students}" x:Name="listViewStudents">
             
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell Text="{Binding Name}" Detail="{Binding Average}"/>
+                    <ImageCell TextColor="{Binding Average, Converter={StaticResource ColorConvert}}" Text="{Binding Name}" Detail="{Binding Average}"/>
                 </DataTemplate>    
             </ListView.ItemTemplate>
             

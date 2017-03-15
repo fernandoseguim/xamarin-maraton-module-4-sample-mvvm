@@ -14,18 +14,19 @@ namespace FormsAssistControl.ViewModel
     {
 
         public ObservableCollection<Student> Students { get; set; }
-     
+
+        bool isBusy = false;
         public bool IsBusy
         {
 
             get
             {
-                return IsBusy;
+                return isBusy;
             }
 
-            set
+            private set
             {
-                IsBusy = value; OnPropertyChanged();
+                isBusy = value; OnPropertyChanged();
             }
 
         }
@@ -44,7 +45,7 @@ namespace FormsAssistControl.ViewModel
             if (!IsBusy)
             {
                 IsBusy = true;
-                await Task.Delay(30000);
+                await Task.Delay(3000);
                 var loadedDirectory = StudentDirectoryService.LoadStudentDirectory();
 
                 foreach (var student in loadedDirectory.Students)

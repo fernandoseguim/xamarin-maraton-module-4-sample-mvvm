@@ -17,7 +17,8 @@ namespace FormsAssistControl.Model.Services
             StudentDirectory studentDirectory = new StudentDirectory();
             ObservableCollection<Student> students;
 
-            string[] names = { "José Luiz", "Miguel Angelo", "JOsé Francisco", "Jesus Antonio" };
+            string[] names = { "José Luiz", "Miguel Angelo", "José Francisco", "Jesus Antonio", "Sofia", "Camila", "Valentina", "Isabella", "Ximena"};
+        
             string[] lastNames = { "Fernandes", "Garcia", "Matins", "Lopes", "Gonzales" };
 
             Random random = new Random(DateTime.Now.Millisecond);
@@ -30,7 +31,7 @@ namespace FormsAssistControl.Model.Services
                 Student student = new Student();
                 student.Name = names[random.Next(0, 8)];
                 student.Lastname = $"{lastNames[random.Next(0, 5)]} {lastNames[random.Next(0, 5)]}";
-                student.Group = random.Next(465, 458).ToString();
+                student.Group = random.Next(456, 458).ToString();
                 student.StudentNumber = random.Next(12384748, 32384748).ToString();
                 student.Average = random.Next(100, 1000) / 10;
                 students.Add(student);
